@@ -52,10 +52,14 @@ const CreativeResume = ({
         <h3 className="text-2xl font-bold mb-4 text-purple-200">Experience</h3>
         {experience.map((job, index) => (
           <div key={index} className="mb-6">
-            <h4 className="text-xl font-bold text-white">{job.title}</h4>
-            <p className="text-lg text-purple-200 mb-2">
-              {job.company} | {job.date}
-            </p>
+            <div className="flex justify-between">
+              <h4 className="text-xl font-bold text-white">
+                {job.jobTitle} at {job.company}
+              </h4>
+              <p className="text-lg text-purple-200 mb-2">
+                {job.startDate} - {job.endDate}
+              </p>
+            </div>
             <ul className="list-disc list-inside text-white">
               {job.responsibilities.map((resp, idx) => (
                 <li key={idx} className="mb-1">
@@ -72,28 +76,12 @@ const CreativeResume = ({
         {education.map((edu, index) => (
           <div key={index} className="mb-4">
             <h4 className="text-lg font-bold text-white">{edu.degree}</h4>
-            <p className="text-purple-200">
-              {edu.school}, {edu.date}
-            </p>
-          </div>
-        ))}
-      </section>
-
-      <section className="mb-8 bg-white bg-opacity-20 p-6 rounded-lg backdrop-blur-lg">
-        <h3 className="text-2xl font-bold mb-4 text-purple-200">Projects</h3>
-        {experience.map((job, index) => (
-          <div key={index} className="mb-6">
-            <h4 className="text-xl font-bold text-white">{job.title}</h4>
-            <p className="text-lg text-purple-200 mb-2">
-              {job.company} | {job.date}
-            </p>
-            <ul className="list-disc list-inside text-white">
-              {job.responsibilities.map((resp, idx) => (
-                <li key={idx} className="mb-1">
-                  {resp}
-                </li>
-              ))}
-            </ul>
+            <div className="flex justify-between items-center">
+              <p className="text-purple-200">{edu.school}</p>
+              <p className="text-lg text-purple-200 mb-2">
+                {edu.startDate} - {edu.endDate}
+              </p>
+            </div>
           </div>
         ))}
       </section>
@@ -113,21 +101,13 @@ const CreativeResume = ({
 
       <section className="mb-8 bg-white bg-opacity-20 p-6 rounded-lg backdrop-blur-lg">
         <h3 className="text-2xl font-bold mb-4 text-purple-200">Leadership</h3>
-        {leadership.map((role, index) => (
-          <div key={index} className="mb-6">
-            <h4 className="text-xl font-bold text-white">{role.title}</h4>
-            <p className="text-lg text-purple-200 mb-2">
-              {role.organization} | {role.date}
-            </p>
-            <ul className="list-disc list-inside text-white">
-              {role.responsibilities.map((resp, idx) => (
-                <li key={idx} className="mb-1">
-                  {resp}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <ul className="list-disc list-inside text-white font-medium">
+          {leadership.map((role, index) => (
+            <li key={index} className="mb-1">
+              {role}
+            </li>
+          ))}
+        </ul>
       </section>
     </div>
   );

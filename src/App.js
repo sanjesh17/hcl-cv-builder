@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "./components/Hero/Hero";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ResumeBuilder from "./components/ResumeBuilder/ResumeBuilder";
+import ResumeOption from "./components/Choose/ResumeOption";
 
 const App = () => {
   return (
@@ -9,7 +10,8 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route index="true" element={<Hero />} />
-          <Route path="/templates" element={<ResumeBuilder />} />
+          <Route path="/resumebuilder" element={<ResumeBuilder />} />
+          <Route path="/resumeselect" element={<ResumeOption />} />
         </Routes>
       </BrowserRouter>
     </div>
